@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.view-port {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+    max-width: 1500px;
+    width: 80%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.container .title {
+    font-size: 30px;
+    font-weight: 50px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.form-details {
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    width: auto;
+}
+
+.example-button-row {
+    display: flex;
+    max-width: 1500px;
+    width: 100%;
+    padding-top: 10px;
+    border-radius: 5px;
+    display: table-cell;
+}

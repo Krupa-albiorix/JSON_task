@@ -1,0 +1,53 @@
+<div class="view-port">
+    <div class="container">
+        <div class="title">Add Task</div>
+        <div class="content">
+            <mat-card style="background-color:lightgray ;">
+                <form [formGroup]="addTask">
+
+                    <div class="user-details">
+                        
+                        <mat-card appearance="fill">
+                            <mat-form-field class="form-details">
+                                <mat-label>Enter title</mat-label>
+                                <input matInput name="title" type="text" formControlName="title">
+                                <mat-error *ngIf="addTask.controls['title'].hasError('required')">
+                                    The title field is <strong>required</strong>...
+                                </mat-error>
+                            </mat-form-field>
+                        </mat-card>&nbsp;
+                        
+                        <mat-card appearance="fill">
+                            <mat-form-field class="form-details">
+                                <mat-label>Enter description</mat-label>
+                                <textarea matInput name="description" type="text" formControlName="description">
+                                <mat-error *ngIf="addTask.controls['description'].hasError('required')">
+                                    The Description is <strong>required</strong>...
+                                </mat-error>
+                                </textarea>
+                            </mat-form-field>
+                        </mat-card>&nbsp;
+                        
+                        <mat-card appearance="fill">
+                            <mat-form-field class="form-details">
+                                <mat-label>Date</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="date">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                <mat-error *ngIf="addTask.controls['date'].hasError('required')">
+                                    Date field is <strong>required</strong>...
+                                </mat-error>
+                            </mat-form-field>
+                        </mat-card>&nbsp;
+
+                        <div class="example-button-row">
+                            <button mat-raised-button type="submit" (click)="onSubmit()" color="primary">Submit</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
