@@ -2,20 +2,25 @@ import { AddtaskComponent } from './addtask/addtask.component';
 import { ListComponent } from './list/list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SubtaskComponent } from './subtask/subtask.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'addtask',
     component: AddtaskComponent
   },
   {
-    path: 'list',
+    path: 'addtask/:id',
+    component: AddtaskComponent
+  },
+  {
+    path: '',
     component: ListComponent
   },
-// {
-//     path: 'home',
-//     component: HomeComponent
-// }
+  {
+    path: 'subtask',
+    component: SubtaskComponent
+  }
 ];
 
 @NgModule({

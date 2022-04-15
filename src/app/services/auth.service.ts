@@ -15,11 +15,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  task(title: string, description: string, date: string): Observable<any> {
+  task(title: string, description: string, date: string, status: string): Observable<any> {
     return this.http.post(AUTH_API, {
       title,
       description,
-      date
+      date,
+      status
     }, httpOptions);
   }
   

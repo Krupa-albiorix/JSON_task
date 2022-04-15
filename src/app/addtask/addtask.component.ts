@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-addtask',
@@ -10,11 +11,34 @@ import { AuthService } from '../services/auth.service';
 })
 export class AddtaskComponent implements OnInit {
   addTask!: any;
+  userId!: any;
+  data!: any;
 
-  constructor(private formBuilder: FormBuilder, private route1: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private httpclient: HttpClient, private route1: Router, private route: ActivatedRoute, private authService: AuthService,
+    ) { 
+    this.createaddTaskForm();
+    this.route.params.subscribe((res) => {
+      this.userId = res['id'];
+      if(this.userId){
+        this.patchFormValue() 
+      }
+    })
+  }
 
   ngOnInit(): void {
-    this.createaddTaskForm();
+   
+  }
+
+  patchFormValue() {
+    this.httpclient.get<any>('http://localhost:3000/task').subscribe(
+      res=>{
+        this.data = res;
+        console.log(this.data);
+        const currentUser = this.data.find((m: any) => m.id == this.userId);
+        console.log(currentUser);
+        this.addTask.patchValue(currentUser); 
+      }
+    )
   }
   
   createaddTaskForm() {
@@ -29,13 +53,26 @@ export class AddtaskComponent implements OnInit {
 
   onSubmit(): void {
     const formValue = this.addTask.value
-    this.authService.task(formValue.title, formValue.description, formValue.date).subscribe({
+    this.authService.task(formValue.title, formValue.description, formValue.date, 'panding').subscribe({
       next: (data: any) => {
         console.log(data);
         this.isSuccessful = true;
-        this.route1.navigate(['list']);
+        this.route1.navigate(['/']);
       }
     });
+  }
+
+  onUpdate() {
+    this.httpclient.get<any>('http://localhost:3000/task').subscribe(
+      res=>{
+        this.data = res;
+        console.log(this.data);
+        const currentUserindex = this.data.findIndex((a: any) => a.id == this.userId);
+        this.data[currentUserindex] = {...this.addTask.value, id: this.userId};
+        return this.httpclient.post('http://localhost:3000/task' , this.data);
+      }
+      // this.route1.navigate(['/']);
+    )
   }
 
 }

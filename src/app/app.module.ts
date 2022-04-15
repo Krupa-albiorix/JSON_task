@@ -11,13 +11,14 @@ import { ListComponent } from './list/list.component';
 import { AddtaskComponent } from './addtask/addtask.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './helpers/auth.interceptor';
-
+import { SubtaskComponent } from './subtask/subtask.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    AddtaskComponent
+    AddtaskComponent,
+    SubtaskComponent
   ],
   imports: [
     BrowserModule,
