@@ -1,73 +1,49 @@
 {
   "task": [
     {
-      "title": "fwfwf",
-      "description": "fwfw",
-      "date": "2022-04-12T18:30:00.000Z",
+      "title": "c",
+      "description": "d",
+      "date": "2022-03-31T18:30:00.000Z",
+      "status": "deleted",
       "id": 1
     },
     {
-      "title": "tstrdfzfc",
-      "description": "fwfw",
-      "date": "2022-04-12T18:30:00.000Z",
+      "title": "ytdyt",
+      "description": "hgfd",
+      "date": "2022-04-01T18:30:00.000Z",
+      "status": "completed",
       "id": 2
     },
     {
-      "title": "Krupa",
-      "description": "oiy8ohlkj",
-      "date": "2022-04-08T18:30:00.000Z",
+      "title": "fewfwr34fwe",
+      "description": "fdwrfrt5uyjuk",
+      "date": "2022-04-02T18:30:00.000Z",
+      "status": "completed",
       "id": 3
     },
     {
-      "title": "verrsf",
-      "description": "cfwerfcd",
-      "date": "2022-03-05T18:30:00.000Z",
       "id": 4
     },
     {
-      "title": "cwefa",
-      "description": "cwrfsd",
-      "date": "2022-04-07T18:30:00.000Z",
+      "title": "d",
+      "description": "oikjnhbgvcxz",
+      "date": "2022-04-02T18:30:00.000Z",
+      "status": "panding",
       "id": 5
     },
     {
-      "title": "datrsfx",
-      "description": "rsfdxf",
-      "date": "2022-04-05T18:30:00.000Z",
+      "title": "dwfwr3",
+      "description": "cfwrfr",
+      "date": "2022-04-14T18:30:00.000Z",
+      "status": "panding",
       "id": 6
     },
     {
-      "title": "wcdcwdcefca",
-      "description": "cqwecdreferca",
-      "date": "2022-03-31T18:30:00.000Z",
+      "title": "jwfduayswdfwayu",
+      "description": "xyqdsxycw",
+      "date": null,
+      "status": "panding",
       "id": 7
-    },
-    {
-      "title": "wecfadc",
-      "description": "cwecadwr",
-      "date": "2022-04-19T18:30:00.000Z",
-      "id": 8
-    },
-    {
-      "title": "abcd",
-      "description": "lefelkfklc, adlca,dl",
-      "date": "2022-03-31T18:30:00.000Z",
-      "status": "panding",
-      "id": 9
-    },
-    {
-      "title": "abcd",
-      "description": "lefelkfklc, ad",
-      "date": "2022-03-31T18:30:00.000Z",
-      "status": "panding",
-      "id": 10
-    },
-    {
-      "title": "fwfwf",
-      "description": "fwfwxqexqwexqse",
-      "date": "2022-04-12T18:30:00.000Z",
-      "status": "panding",
-      "id": 11
     }
   ]
 }

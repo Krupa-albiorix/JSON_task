@@ -13,34 +13,32 @@ export class AddtaskComponent implements OnInit {
   addTask!: any;
   userId!: any;
   data!: any;
+  dataSource = [];
 
   constructor(private formBuilder: FormBuilder, private httpclient: HttpClient, private route1: Router, private route: ActivatedRoute, private authService: AuthService,
-    ) { 
+  ) {
     this.createaddTaskForm();
     this.route.params.subscribe((res) => {
       this.userId = res['id'];
-      if(this.userId){
-        this.patchFormValue() 
+      if (this.userId) {
+        this.patchFormValue()
       }
     })
   }
 
   ngOnInit(): void {
-   
+
   }
 
   patchFormValue() {
-    this.httpclient.get<any>('http://localhost:3000/task').subscribe(
-      res=>{
+    this.httpclient.get<any>(`http://localhost:3000/task/${this.userId}`).subscribe(
+      res => {
         this.data = res;
-        console.log(this.data);
-        const currentUser = this.data.find((m: any) => m.id == this.userId);
-        console.log(currentUser);
-        this.addTask.patchValue(currentUser); 
+        this.addTask.patchValue(this.data);
       }
     )
   }
-  
+
   createaddTaskForm() {
     this.addTask = this.formBuilder.group({
       title: ['', [Validators.required]],
@@ -63,16 +61,20 @@ export class AddtaskComponent implements OnInit {
   }
 
   onUpdate() {
-    this.httpclient.get<any>('http://localhost:3000/task').subscribe(
-      res=>{
+    
+    const formValue = {...this.addTask.value}
+    formValue.status = this.data.status
+    console.log('formValue: ', formValue);
+    console.log('this.userId: ', this.userId);
+
+    this.httpclient.put(`http://localhost:3000/task/${this.userId}`, formValue).subscribe(
+      res => {
         this.data = res;
         console.log(this.data);
-        const currentUserindex = this.data.findIndex((a: any) => a.id == this.userId);
-        this.data[currentUserindex] = {...this.addTask.value, id: this.userId};
-        return this.httpclient.post('http://localhost:3000/task' , this.data);
+        this.route1.navigate(['/']);
+      
       }
-      // this.route1.navigate(['/']);
     )
   }
-
+  
 }

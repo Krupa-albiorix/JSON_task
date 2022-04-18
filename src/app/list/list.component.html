@@ -3,7 +3,9 @@
         <div class="title">Added Task List</div>
         <div class="content">
 
-            <button mat-raised-button color="warn" [routerLink]="['/addtask']"><mat-icon>person_add</mat-icon> task</button>
+            <button mat-raised-button color="warn" [routerLink]="['/addtask']">
+                <mat-icon>person_add</mat-icon> task
+            </button>
 
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                 <!-- <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
@@ -40,16 +42,16 @@
                 <ng-container matColumnDef="updatedata">
                     <th mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let element" style="margin-right: 0px;">
-                        <a [routerLink]="['/addtask', element.id]">
+                        <a [routerLink]="['/addtask', element.id]" *ngIf="element.status !== 'deleted'">
                             <mat-icon class="black-color">edit</mat-icon>
                         </a>&nbsp;
-                        <button mat-raised-button [routerLink]="['subtask']" >
+                        <button mat-raised-button [routerLink]="['/subtask', element.id]" *ngIf="element.status !== 'deleted' && element.status !== 'completed'">
                             Add Subtask
                         </button>&nbsp;
-                        <button mat-raised-button [routerLink]="">
+                        <button mat-raised-button (click)="deleteData(element,'completed')" *ngIf="element.status !== 'deleted' && element.status !== 'completed'">
                             complete
                         </button>&nbsp;
-                        <a (click)="deleteData(element.id)">
+                        <a (click)="deleteData(element,'deleted')" *ngIf="element.status !== 'deleted' && element.status !== 'completed'">
                             <mat-icon color="alert">delete</mat-icon>
                         </a>
                     </td>

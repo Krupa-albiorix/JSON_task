@@ -8,26 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
-export class ListComponent implements OnInit{
+export class ListComponent implements OnInit {
   task = [];
+  data!: any;
 
   constructor(private httpclient: HttpClient) { }
 
   ngOnInit(): void {
     this.getTask();
   }
-  
-   dataSource = [];
+
+  dataSource = [];
 
   getTask() {
     this.httpclient.get<any>('http://localhost:3000/task').subscribe({
-      next : response => {
+      next: response => {
         console.log(response);
         this.dataSource = response;
         console.log(this.dataSource);
@@ -40,9 +41,19 @@ export class ListComponent implements OnInit{
 
   columnsToDisplay = ['id', 'title', 'description', 'date', 'status', 'updatedata'];
   expandedElement!: PeriodicElement | null;
-  
-  deleteData(id: any) {
-    
+
+  deleteData(element: any, status: string) {
+    console.log('element: ', element);
+
+    const payload = { ...element }
+    console.log('payload: ', payload);
+    payload.status = status
+    console.log('payload: ', payload);
+    this.httpclient.put(`http://localhost:3000/task/${payload.id}`, payload).subscribe(
+      res => {
+        this.getTask();
+      }
+    )
   }
 
 }
@@ -52,5 +63,4 @@ export interface PeriodicElement {
   title: string;
   description: string;
   date: string;
-
 }

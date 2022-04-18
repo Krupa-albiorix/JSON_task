@@ -12,6 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
+  Subtask: any;
 
   constructor(private http: HttpClient) { }
 

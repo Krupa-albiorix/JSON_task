@@ -5,14 +5,7 @@
             <mat-card style="background-color:lightgray ;">
                 <form [formGroup]="subTask">
 
-                    <mat-form-field appearance="fill">
-                        <mat-label>Favorite food</mat-label>
-                        <mat-select>
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                            {{food.viewValue}}
-                        </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                    <h2 style="margin-bottom: 15px;">{{ dataSource?.title }}</h2>
 
                     <mat-card appearance="fill">
                         <mat-form-field class="form-details">

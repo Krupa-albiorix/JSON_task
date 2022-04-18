@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'subtask',
     component: SubtaskComponent
+  },
+  {
+    path: 'subtask/:id',
+    component: SubtaskComponent
   }
 ];
 
