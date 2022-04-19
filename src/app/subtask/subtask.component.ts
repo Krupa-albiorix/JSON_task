@@ -1,3 +1,4 @@
+import { SubTask } from './../list/list.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -15,11 +16,11 @@ export class SubtaskComponent implements OnInit {
   dataSource!: any;
   userId: any;
 
-  constructor(private formBuilder:FormBuilder, private route: ActivatedRoute, private route1: Router, private authService: AuthService, private httpclient: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private route1: Router, private authService: AuthService, private httpclient: HttpClient) {
     this.route.params.subscribe((res) => {
       this.userId = res['id'];
     })
-   }
+  }
 
   ngOnInit(): void {
     this.createsubTaskForm();
@@ -43,12 +44,13 @@ export class SubtaskComponent implements OnInit {
     });
   }
 
-  onSubmit() : void {
-    if ( this.dataSource.subtask ) {
-      const formValue = this.dataSource.subtask.push[this.subTask.value];
+  onSubmit(): void {
+    let formValue = { ...this.dataSource };
+    if (formValue.subtask) {
+      formValue.subtask.push(this.subTask.value);
       console.log(formValue);
     } else {
-      const formValue = this.subTask.value;
+      formValue.subtask = [this.subTask.value];
       console.log(formValue);
     }
 
@@ -57,17 +59,5 @@ export class SubtaskComponent implements OnInit {
         this.route1.navigate(['/']);
       }
     )
-    // this.getTask();
-    // const formValue = {...this.subTask.value};
-    // console.log(formValue);
-    // this.authService.Subtask(formValue.title, formValue.description, formValue.date).subscribe({
-        // this.route1.navigate(['/']);
-      // }
-    // });
   }
-
 }
-function formValue(arg0: string, formValue: any) {
-  throw new Error('Function not implemented.');
-}
-
