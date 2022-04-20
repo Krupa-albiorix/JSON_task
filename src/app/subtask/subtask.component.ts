@@ -41,18 +41,24 @@ export class SubtaskComponent implements OnInit {
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       date: ['', [Validators.required]]
+
     });
   }
 
   onSubmit(): void {
     let formValue = { ...this.dataSource };
+    let data = { ...this.subTask.value };
+    data.id = new Date().getTime().toString();
+    console.log(data);
+    
     if (formValue.subtask) {
-      formValue.subtask.push(this.subTask.value);
+      formValue.subtask.push(data);
       console.log(formValue);
     } else {
-      formValue.subtask = [this.subTask.value];
+      formValue.subtask = [data];
       console.log(formValue);
     }
+    console.log(formValue);
 
     this.httpclient.put(`http://localhost:3000/task/${this.userId}`, formValue).subscribe(
       res => {

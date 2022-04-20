@@ -9,8 +9,8 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./list.component.scss'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -21,10 +21,10 @@ export class ListComponent implements OnInit {
 
   dataSource!: MatTableDataSource<AddTask>;
   usersData: AddTask[] = [];
-  innerDisplayedColumns = ['title', 'description', 'date'];
+  innerDisplayedColumns = ['id', 'title', 'description', 'date', 'updatedata'];
   columnsToDisplay = ['id', 'title', 'description', 'date', 'status', 'updatedata'];
   expandedElement!: AddTask | null;
- 
+
 
   constructor(private httpclient: HttpClient) { }
 
@@ -36,9 +36,7 @@ export class ListComponent implements OnInit {
     this.httpclient.get<any>('http://localhost:3000/task').subscribe({
       next: response => {
         console.log(response);
-        this.dataSource = response;
-        console.log(this.dataSource);
-        response.forEach((user : AddTask) => {
+        response.forEach((user: AddTask) => {
           console.log(response);
           if (
             user.subtask &&
@@ -52,8 +50,10 @@ export class ListComponent implements OnInit {
             ];
             console.log(this.usersData);
           } else {
-            this.usersData = [...this.usersData, user];
-            console.log(this.usersData);
+            this.usersData = [
+              ...this.usersData,
+              { ...user, subtask: new MatTableDataSource() },
+            ];
           }
         });
         this.dataSource = new MatTableDataSource(this.usersData);
@@ -66,14 +66,24 @@ export class ListComponent implements OnInit {
     console.log('element: ', element);
 
     const payload = { ...element }
+    payload.subtask = element.subtask.data
+    // delete payload.subtask
     console.log('payload: ', payload);
     payload.status = status
     console.log('payload: ', payload);
     this.httpclient.put(`http://localhost:3000/task/${payload.id}`, payload).subscribe(
-      res => {
+      _res => {
         this.getTask();
       }
     )
+  }
+
+  deleteSubData(element: any) {
+    let id = { ...element };
+    console.log(id);
+    this.httpclient.delete(`http://localhost:3000/task/${element.id}`)
+        .subscribe(() => this.getTask()
+        );
   }
 
 }

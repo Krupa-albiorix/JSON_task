@@ -1,3 +1,4 @@
+import { PracticeComponent } from './practice/practice.component';
 import { AddtaskComponent } from './addtask/addtask.component';
 import { ListComponent } from './list/list.component';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'subtask/:id',
     component: SubtaskComponent
+  },
+  {
+    path: 'practice',
+    component: PracticeComponent
   }
 ];
 
