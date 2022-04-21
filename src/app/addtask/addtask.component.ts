@@ -64,8 +64,6 @@ export class AddtaskComponent implements OnInit {
     
     const formValue = {...this.addTask.value}
     formValue.status = this.data.status
-    console.log('formValue: ', formValue);
-    console.log('this.userId: ', this.userId);
 
     this.httpclient.put(`http://localhost:3000/task/${this.userId}`, formValue).subscribe(
       res => {

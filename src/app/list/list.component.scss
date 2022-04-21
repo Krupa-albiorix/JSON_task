@@ -37,37 +37,6 @@ table {
     color: black;
 }
 
-
-// tr.example-detail-row {
-//     height: 0;
-// }
-
-// tr.example-element-row:not(.example-expanded-row):hover {
-//     background: whitesmoke;
-// }
-
-// tr.example-element-row:not(.example-expanded-row):active {
-//     background: #efefef;
-// }
-
-// .example-element-row td {
-//     border-bottom-width: 0;
-// }
-
-// .example-element-detail {
-//     overflow: hidden;
-//     display: flex;
-// }
-
-// .example-element-diagram {
-//     font-size: 15px;
-//     min-width: 80px;
-//     font-weight: lighter;
-//     margin: 8px 0;
-//     height: 70px;
-// }
-
-
 table {
     width: 100%;
   }
@@ -114,4 +83,12 @@ table {
   
   .example-element-description-attribution {
     opacity: 0.5;
+  }
+  
+  .text-1 {
+    background-color: red;
+  }
+
+  .text-2 {
+    background-color: green;
   }

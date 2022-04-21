@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -35,20 +36,16 @@ export class ListComponent implements OnInit {
   getTask() {
     this.httpclient.get<any>('http://localhost:3000/task').subscribe({
       next: response => {
-        console.log(response);
         response.forEach((user: AddTask) => {
-          console.log(response);
           if (
             user.subtask &&
             Array.isArray(user.subtask) &&
             user.subtask.length
           ) {
-            console.log(user.subtask.length);
             this.usersData = [
               ...this.usersData,
               { ...user, subtask: new MatTableDataSource(user.subtask) },
             ];
-            console.log(this.usersData);
           } else {
             this.usersData = [
               ...this.usersData,
@@ -63,27 +60,33 @@ export class ListComponent implements OnInit {
   }
 
   deleteData(element: any, status: string) {
-    console.log('element: ', element);
 
     const payload = { ...element }
+    debugger
     payload.subtask = element.subtask.data
-    // delete payload.subtask
-    console.log('payload: ', payload);
     payload.status = status
-    console.log('payload: ', payload);
+    console.log(payload)
+    if (status === "deleted"){
+      console.log(status);}
+    else if (status === "completed")
+          status = 'green';
     this.httpclient.put(`http://localhost:3000/task/${payload.id}`, payload).subscribe(
       _res => {
-        this.getTask();
+        window.location.reload();
       }
     )
   }
 
-  deleteSubData(element: any) {
-    let id = { ...element };
-    console.log(id);
-    this.httpclient.delete(`http://localhost:3000/task/${element.id}`)
-        .subscribe(() => this.getTask()
-        );
+  deleteSubData(element: any, subelement: any) {
+    const data = [...element.subtask.data]
+    data.splice(subelement,1);
+    element.subtask = data;
+    console.log(element);
+    this.httpclient.put(`http://localhost:3000/task/${element.id}`, element).subscribe(
+      _res => {
+        window.location.reload();
+      }
+    )
   }
 
 }

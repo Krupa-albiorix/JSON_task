@@ -30,7 +30,6 @@ export class SubtaskComponent implements OnInit {
   getTask() {
     this.httpclient.get<any>(`http://localhost:3000/task/${this.userId}`).subscribe({
       next: response => {
-        console.log(response);
         this.dataSource = response;
       }
     });
@@ -49,14 +48,11 @@ export class SubtaskComponent implements OnInit {
     let formValue = { ...this.dataSource };
     let data = { ...this.subTask.value };
     data.id = new Date().getTime().toString();
-    console.log(data);
     
     if (formValue.subtask) {
       formValue.subtask.push(data);
-      console.log(formValue);
     } else {
       formValue.subtask = [data];
-      console.log(formValue);
     }
     console.log(formValue);
 
