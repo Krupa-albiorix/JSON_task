@@ -1,4 +1,3 @@
-import { PracticeComponent } from './practice/practice.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,16 +9,16 @@ import { AppComponent } from './app.component';
 import { MatComponentsModule } from './mat-components.module';
 import { ListComponent } from './list/list.component';
 import { AddtaskComponent } from './addtask/addtask.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SubtaskComponent } from './subtask/subtask.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     AddtaskComponent,
-    SubtaskComponent,
-    PracticeComponent
+    SubtaskComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,9 @@ import { SubtaskComponent } from './subtask/subtask.component';
     FormsModule,
     MatComponentsModule
   ],
-  providers: [],
+  providers: [ {provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptor,
+    multi: true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

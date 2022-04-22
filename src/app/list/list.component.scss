@@ -1,94 +1,94 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .view-port {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: linear-gradient(135deg, #71b7e6, #9b59b6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
 .container {
-    max-width: 1600px;
-    width: 80%;
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  max-width: 1600px;
+  width: 80%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 .container .title {
-    font-size: 30px;
-    font-weight: 50px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: 50px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .black-color {
-    color: black;
+  color: black;
 }
 
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
   
-  tr.example-detail-row {
-    height: 0;
-  }
+tr.example-detail-row {
+  height: 0;
+}
   
-  tr.example-element-row:not(.example-expanded-row):hover {
-    background: whitesmoke;
-  }
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
   
-  tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
-  }
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
   
-  .example-element-row td {
-    border-bottom-width: 0;
-  }
+.example-element-row td {
+  border-bottom-width: 0;
+}
   
-  .example-element-detail {
-    overflow: hidden;
-    display: flex;
-  }
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
   
-  .example-element-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-  }
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
   
-  .example-element-symbol {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: normal;
-  }
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
   
-  .example-element-description {
+.example-element-description {
     padding: 16px;
-  }
+}
   
-  .example-element-description-attribution {
-    opacity: 0.5;
-  }
+.example-element-description-attribution {
+  opacity: 0.5;
+}
   
-  .text-1 {
-    background-color: red;
-  }
+.text-1 {
+  background-color: rgb(243, 66, 66);
+}
 
-  .text-2 {
-    background-color: green;
-  }
+.text-2 {
+  background-color: rgb(23, 184, 23);
+}

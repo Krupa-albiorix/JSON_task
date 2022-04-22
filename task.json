@@ -1,107 +1,42 @@
 {
   "task": [
     {
-      "title": "PODQPODDALM;L",
-      "description": "dkq[dokqawodj",
-      "date": "2022-03-31T18:30:00.000Z",
-      "status": "completed",
+      "title": "first task",
+      "description": "testing description",
+      "date": "2022-04-19T18:30:00.000Z",
+      "status": "panding",
       "id": 1,
       "subtask": [
         {
-          "title": "clwefoweijdo",
-          "description": "cmwepjcwepodkepo",
-          "date": "2022-04-06T18:30:00.000Z",
-          "id": "1650537795482"
-        },
-        {
-          "title": "wkfiofowir",
-          "description": "mcweodeo[",
-          "date": "2022-04-17T18:30:00.000Z",
-          "id": "1650537849050"
+          "title": "subtask of first task",
+          "description": "description",
+          "date": "2022-04-20T18:30:00.000Z",
+          "id": "1650629460002"
         }
       ]
     },
     {
-      "title": "lwempojfpo",
-      "description": "cwpejepodjepo",
-      "date": "2022-04-12T18:30:00.000Z",
-      "status": "panding",
+      "title": "second task",
+      "description": "description",
+      "date": "2022-04-20T18:30:00.000Z",
+      "status": "completed",
       "id": 2,
-      "subtask": [
-        {
-          "title": "wpfjwprfjpi",
-          "description": "ckmwporjfwpoej",
-          "date": "2022-04-06T18:30:00.000Z",
-          "id": "1650537785699"
-        },
-        {
-          "title": "wpodjwaepojdpi",
-          "description": "cwekdnwaepodjpo",
-          "date": "2022-04-18T18:30:00.000Z",
-          "id": "1650537817095"
-        }
-      ]
+      "subtask": []
     },
     {
-      "title": "clkwenfwpoempo",
-      "description": "xmwedkwepofjwepo",
-      "date": "2022-04-07T18:30:00.000Z",
-      "status": "deleted",
-      "id": 3,
-      "subtask": [
-        {
-          "title": "cmwofjw",
-          "description": "cwekdmwepodjapo",
-          "date": "2022-04-18T18:30:00.000Z",
-          "id": "1650537829303"
-        }
-      ]
+      "title": "Third task",
+      "description": "description",
+      "date": "2022-04-21T18:30:00.000Z",
+      "status": "panding",
+      "id": 3
     },
     {
-      "title": "cw;lcmjwporfjpo",
-      "description": "qmcejpowfjwproj",
-      "date": "2022-04-14T18:30:00.000Z",
+      "title": "Fourth task",
+      "description": "DEscription",
+      "date": "2022-04-21T18:30:00.000Z",
       "status": "deleted",
       "id": 4,
       "subtask": []
-    },
-    {
-      "title": "woifjworfjpow",
-      "description": "cwefpowedfjpoe",
-      "date": "2022-04-03T18:30:00.000Z",
-      "status": "deleted",
-      "id": 5,
-      "subtask": [
-        {
-          "title": "clweijrio",
-          "description": "mwdpqwjdpqeo",
-          "date": "2022-04-06T18:30:00.000Z",
-          "id": "1650537840369"
-        }
-      ]
-    },
-    {
-      "title": "yry",
-      "description": "yryr",
-      "date": "2022-04-19T18:30:00.000Z",
-      "status": "completed",
-      "id": 6,
-      "subtask": []
-    },
-    {
-      "title": "yry",
-      "description": "yryroooo",
-      "date": "2022-04-19T18:30:00.000Z",
-      "status": "deleted",
-      "id": 7,
-      "subtask": [
-        {
-          "title": "oo",
-          "description": "o",
-          "date": "2022-04-01T18:30:00.000Z",
-          "id": "1650538385775"
-        }
-      ]
     }
   ]
 }

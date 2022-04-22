@@ -1,12 +1,12 @@
 <div class="view-port">
     <div class="container">
-        <div class="title">Add Task</div>
+        <div class="title"> {{taskId ? 'Edit':'Add'}} Task</div>
         <div class="content">
             <mat-card style="background-color:lightgray ;">
                 <form [formGroup]="addTask">
 
                     <div class="user-details">
-                        
+
                         <mat-card appearance="fill">
                             <mat-form-field class="form-details">
                                 <mat-label>Enter title</mat-label>
@@ -16,7 +16,7 @@
                                 </mat-error>
                             </mat-form-field>
                         </mat-card>&nbsp;
-                        
+
                         <mat-card appearance="fill">
                             <mat-form-field class="form-details">
                                 <mat-label>Enter description</mat-label>
@@ -27,7 +27,7 @@
                                 </textarea>
                             </mat-form-field>
                         </mat-card>&nbsp;
-                        
+
                         <mat-card appearance="fill">
                             <mat-form-field class="form-details">
                                 <mat-label>Date</mat-label>
@@ -41,8 +41,9 @@
                         </mat-card>&nbsp;
 
                         <div class="example-button-row">
-                            <button mat-raised-button type="submit" (click)="onSubmit()" color="primary">Submit</button>&nbsp;
-                            <button mat-raised-button (click)="onUpdate()" color="primary">Update</button>
+                            <button mat-raised-button type="submit" *ngIf="!taskId" (click)="onSubmit()"
+                                color="primary">Submit</button>&nbsp;
+                            <button mat-raised-button (click)="onUpdate()" *ngIf="taskId" color="primary">Update</button>
                         </div>
 
                     </div>
